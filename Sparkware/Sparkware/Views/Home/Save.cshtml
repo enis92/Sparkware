@@ -1,0 +1,53 @@
+﻿@model Sparkware.DM.User
+
+@{
+    ViewBag.Title = "Save";
+}
+
+<h2>Save</h2>
+
+@using (Html.BeginForm("Save", "Home")) {
+<div class="form-horizontal">
+    <h4>User</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.TextBoxFor(el => el.Id, new { @hidden = "hidden" })
+    <div class="form-group">
+        @Html.LabelFor(el => el.FirstName, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.ValidationMessageFor(el => el.FirstName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(el => el.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(el => el.LastName, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.ValidationMessageFor(el => el.LastName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(el => el.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(el => el.Username, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.ValidationMessageFor(el => el.Username, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(el => el.Username, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(el => el.DateOfBirth, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.ValidationMessageFor(el => el.DateOfBirth, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(el => el.DateOfBirth, new { @class = "form-control datecontrol date-picker", data_provide = "datepicker", PlaceHolder = "Enter Date of Birth", type = "text", @Value = Model?.DateOfBirth.Value.ToShortDateString() })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Save" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>  

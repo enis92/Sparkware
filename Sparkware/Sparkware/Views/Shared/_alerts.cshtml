@@ -1,0 +1,15 @@
+﻿@if (TempData.ContainsKey(Sparkware.Models.Alerts.WARNING)) {
+    <div class="alert alert-block">
+        <a class="close" data-dismiss="alert" href="#">x</a>
+        <h4 class="alert-heading">Uyarı!</h4>
+        @TempData[Sparkware.Models.Alerts.WARNING]
+    </div>
+}
+
+@foreach (string key in Sparkware.Models.Alerts.All) {
+    if (TempData.ContainsKey(key)) {
+        <div class="alert alert-@key">
+            @TempData[key]
+        </div>
+    }
+}

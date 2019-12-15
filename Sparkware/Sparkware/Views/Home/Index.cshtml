@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Sparkware.DM.User>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row">
+    <div class="">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(el => el.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(el => el.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(el => el.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(el => el.DateOfBirth)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var user in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(el => user.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => user.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => user.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => user.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = user.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
