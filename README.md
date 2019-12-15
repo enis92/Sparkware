@@ -1,6 +1,7 @@
 # Sparkware
 
 #Prerequisites
+
 Install .NET Framework 4.7.2 SDK.
 Install the latest version of Visual Studio 2017.
 Access to restore nuget packages from nuget.org.
